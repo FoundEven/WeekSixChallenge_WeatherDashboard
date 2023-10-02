@@ -45,11 +45,11 @@ function startSearch() {
         var geoCode = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityCheck + "&limit=5&appid=893b5eb8f58ad1b936b738a08c218ea8";
         
         fetch(geoCode).then(function (response) {
-            console.log(response);
+
         
             return response.json();
         }).then(function (data) {
-            console.log(data);
+
             var lat = data[0].lat;
             var lon = data[0].lon;
             getFetch(lat, lon);
@@ -66,14 +66,14 @@ function getFetch(lat, lon) {
 
     //This is for the today display
     fetch(weatherUrl).then(function (response) {
-        console.log(response);
+
 
         return response.json();
     }).then(function (data) {
         console.log(data);
-        var iconId = data.weather[0].id;
-
-        console.log(iconId);
+        var iconId = data.weather[0].icon;
+        iconEl.style.content = iconId;
+        console.log(iconEl);
         cityName.textContent = data.name + "(Today)" ;
         tempiture.textContent = data.main.temp + " F";
         windy.textContent = data.wind.speed + " mph";
@@ -81,11 +81,11 @@ function getFetch(lat, lon) {
     });
 //This is for the 5 day forcast
     fetch(requestUrl).then(function (response) {
-        console.log(response);
+
 
         return response.json();
     }).then(function (data) {
-        console.log(data);
+
     
         date.textContent = "(" + data.list[3].dt_txt + ')';
         tem.textContent = data.list[3].main.temp + " F";
@@ -145,11 +145,11 @@ function historyBar(event) {
     var geoCode = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityClick + "&limit=5&appid=893b5eb8f58ad1b936b738a08c218ea8";
         
     fetch(geoCode).then(function (response) {
-        console.log(response);
+
     
         return response.json();
     }).then(function (data) {
-        console.log(data);
+
         var lat = data[0].lat;
         var lon = data[0].lon;
         getFetch(lat, lon);
