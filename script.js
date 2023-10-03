@@ -47,7 +47,7 @@ function startSearch() {
     var cityCheck = textEl.value.trim();
 
     if (cityCheck) {
-        var geoCode = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityCheck + "&limit=5&appid=893b5eb8f58ad1b936b738a08c218ea8";
+        var geoCode = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityCheck + "&limit=5&appid=893b5eb8f58ad1b936b738a08c218ea8";
         
         fetch(geoCode).then(function (response) {
 
@@ -161,7 +161,7 @@ function history() {
 function historyBar(event) {
     var cityClick = event.target.innerHTML;
 
-    var geoCode = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityClick + "&limit=5&appid=893b5eb8f58ad1b936b738a08c218ea8";
+    var geoCode = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityClick + "&limit=5&appid=893b5eb8f58ad1b936b738a08c218ea8";
         
     fetch(geoCode).then(function (response) {
 
